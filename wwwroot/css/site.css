@@ -1,0 +1,113 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #FBFFF9;
+}
+
+/* Mudar a cor de fundo da navbar */
+.custom-navbar {
+    background-color: #ffffff; /* cor de fundo desejada */
+}
+
+    /* Mudar a cor do texto da navbar */
+    .custom-navbar .navbar-brand,
+    .custom-navbar .navbar-nav .nav-link {
+        color: white !important; /* cor do texto desejada */
+    }
+
+        /* Mudar a cor do texto ao passar o mouse */
+        .custom-navbar .navbar-nav .nav-link:hover {
+            color: #ffffff; /* cor do texto ao passar o mouse */
+        }
+
+.nav-item1 {
+    left: 10%;
+    position: relative;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Estiliza o cabe�alho */
+h1 {
+    text-align: center;
+    color: #b40e0e;
+    margin-top: 20px;
+    font-size: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Estiliza o formul�rio */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estiliza os r�tulos */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Estiliza os campos de entrada */
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estiliza o espa�amento entre os campos */
+form > input {
+    margin-bottom: 15px; /* Espa�o entre campos */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.container-footer {
+    background-color: #e22424;
+    color: white;
+    text-align: center;
+    bottom: 100%;
+}
+.ecoli {
+    position:relative;
+    width: 125px;
+    left: 40px;
+}
+

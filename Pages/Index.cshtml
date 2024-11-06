@@ -1,0 +1,121 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLife - Voluntários</title>
+    <link rel="stylesheet" href="~/css/Index.css" />
+</head>
+<body>
+        <header>
+            <div class="logo-section">
+                <div class="logo-text">
+                    <h3>EcoLife</h3>
+                    <p><strong>Preserve, compre e inove</strong></p>
+                    <p class="tagline">Sem prejudicar o planeta</p>
+                </div>
+                <img src="~/img/sobre.png" alt="Imagem de voluntários" class="header-image">
+            </div>
+        </header>
+
+        <section class="volunteer-section">
+            <h4>Faça parte da causa</h4>
+            <p class="subtitle">Seja um voluntário</p>
+
+            <div class="volunteer-grid">
+                <div class="volun-card">
+                    <div class="image-placeholder"></div>
+                    <p>Nome do canal de voluntário</p>
+                </div>
+                <div class="volun-card">
+                    <div class="image-placeholder"></div>
+                    <p>Nome do canal de voluntário</p>
+                </div>
+                <div class="volun-card">
+                    <div class="image-placeholder"></div>
+                    <p>Nome do canal de voluntário</p>
+                </div>
+                <div class="volun-card">
+                    <div class="image-placeholder"></div>
+                    <p>Nome do canal de voluntário</p>
+                </div>
+                <div class="volun-card">
+                    <div class="image-placeholder"></div>
+                    <p>Nome do canal de voluntário</p>
+                </div>
+                <div class="volun-card">
+                    <div class="image-placeholder"></div>
+                    <p>Nome do canal de voluntário</p>
+                </div>
+            </div>
+        </section>
+        
+    <section class="descarte">
+        <h2>Locais para descarte correto</h2>
+        <p>Encontre o local correto para o descarte</p>
+        <p> perto de você</p>
+
+        <div class="mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d124435.12319354508!2d-38.472067981394794!3d-12.933564853419288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdescartes%20de%20plasticos%20em%20salvador!5e0!3m2!1spt-PT!2sus!4v1730490907927!5m2!1spt-PT!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="tipos-descarte">
+            <img class="lixo" src="~/img/tipolixo.png" alt="Tipos de descarte" />
+        </div>
+    </section>
+</body>
+</html>
+
+
+<table class="tabela-oculta">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>CPF</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cadastro in Model.Cadastros1)
+        {
+            <tr>
+                <td>@cadastro.ID_User</td>
+                <td>@cadastro.Nome_User</td>
+                <td>@cadastro.Email_User</td>
+                <td>@cadastro.CPF</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="tabela-oculta">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome do Produto</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Categoria</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model.Produtos1)
+        {
+            <tr>
+                <td>@produto.ID_Produtos</td>
+                <td>@produto.Nome_Produto</td>
+                <td>@produto.preco_produto</td>
+                <td>@produto.Estoque</td>
+                <td>@produto.Categoria</td>
+                <td>@produto.descricao</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,98 @@
+/* _content/Eco_life/Pages/Shared/_Layout.cshtml.rz.scp.css */
+body[b-qx0p0sgxyx] {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+}
+
+nav li[b-qx0p0sgxyx]{
+  color: black !important;
+}
+
+.navbar[b-qx0p0sgxyx] {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+/* Estilização do botão de toggle */
+.navbar-toggler[b-qx0p0sgxyx] {
+  border: none; /* Remove a borda do botão */
+  padding: 0; /* Remove o preenchimento */
+}
+
+.navbar-toggler-icon[b-qx0p0sgxyx] {
+  background-color: #D82525; /* Cor do ícone do botão */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilização da lista de navegação */
+.navbar-collapse[b-qx0p0sgxyx] {
+  transition: max-height 0.3s ease; /* Transição suave ao expandir e colapsar */
+}
+
+.navbar-nav[b-qx0p0sgxyx] {
+  flex-direction: row; /* Alinha os itens da navbar horizontalmente */
+  margin: 0; /* Remove margens */
+  padding: 0; /* Remove preenchimento */
+}
+
+/* Estilização dos itens da navegação */
+.nav-item[b-qx0p0sgxyx] {
+  color: #D82525;
+  margin: 0 15px; /* Espaçamento horizontal entre os itens */
+}
+
+/* Estilização dos links da navbar */
+.nav-link[b-qx0p0sgxyx] {
+  color: #D82525; /* Cor do texto do link */
+  padding: 10px 15px; /* Espaçamento interno */
+  border-radius: 25px; /* Bordas arredondadas para links */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para cor de fundo e texto */
+}
+
+/* Efeito hover nos links */
+.nav-link:hover[b-qx0p0sgxyx] {
+  background-color: #D82525; /* Cor de fundo ao passar o mouse */
+  color: #ffffff; /* Cor do texto ao passar o mouse */
+}
+
+
+
+
+.navbar-brand img[b-qx0p0sgxyx] {
+  max-height: 50px;
+}
+
+.navbar-nav .nav-link[b-qx0p0sgxyx] {
+  box-sizing: border-box;
+  display: inline-block; /* Permite o alinhamento correto dos links */
+  width: auto; /* Define a largura como automática */
+  height: 60px; /* Mantém a altura desejada */
+  padding: 0 20px; /* Adiciona preenchimento lateral para um melhor espaçamento */
+  color: black!;
+  
+  background: #D82525; /* Cor de fundo do link */
+  border: 1px solid #741111; /* Borda do link */
+  border-radius: 35px; /* Bordas arredondadas */
+  color: white; /* Cor do texto */
+  text-align: center; /* Centraliza o texto */
+  line-height: 60px; /* Alinha verticalmente o texto */
+  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+.text-n[b-qx0p0sgxyx]{
+  color: black!;
+
+}
+
+
+.navbar-nav .nav-link:hover[b-qx0p0sgxyx] {
+  background: #e60d0d; /* Cor de fundo ao passar o mouse */
+  color: white; /* Cor do texto ao passar o mouse */
+}
+
+
+@keyframes fadeIn-b-qx0p0sgxyx {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+

@@ -1,0 +1,129 @@
+@using Microsoft.AspNetCore.Http
+@{
+    var userName = Context.Session.GetString("UserName");
+    var funcionarioNome = Context.Session.GetString("FuncionarioNome");
+    var isUserLoggedIn = !string.IsNullOrEmpty(userName);
+    var isFuncionarioLoggedIn = !string.IsNullOrEmpty(funcionarioNome);
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Eco Life</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Eco_life.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="/">
+                    <img src="~/img/EcoLi.png" alt="Eco Life Logo" width="160" height="50" class="me-2">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-success" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-success" asp-area="" asp-page="/Loja">Loja</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-success" asp-area="" asp-page="/Parceria">Parcerias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-success" asp-area="" asp-page="/Sobre">Sobre nós</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (isUserLoggedIn || isFuncionarioLoggedIn)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-success" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user-circle me-1"></i>
+                                    @(isUserLoggedIn ? userName : funcionarioNome)
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" asp-page="@(isUserLoggedIn ? "/Perfil" : "/PerfilFuncionario")">Meu Perfil</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Logout">Sair</a></li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                            {
+                                <li class="nav-item dropdown me-2">
+                                <a class="nav-link dropdown-toggle" id="cadastroDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cadastre-se
+                                </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cadastroDropdown">
+                                            <li><a class="dropdown-item" asp-page="/CadastrarUsuario">Como Usuário</a></li>
+                                        <li><a class="dropdown-item" asp-page="/CadastrarFornecedor">Como Fornecedor</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Login
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
+                                        <li><a class="dropdown-item" asp-page="/LoginUsuario">Login Usuário</a></li>
+                                        <li><a class="dropdown-item" asp-page="/LoginFuncionario">Login Funcionário</a></li>
+                                    </ul>
+                                </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        @if (isUserLoggedIn || isFuncionarioLoggedIn)
+        {
+            <div class="alert alert-success text-center mb-0" style="animation: fadeIn 0.5s;">
+                Bem-vindo, @(isUserLoggedIn ? userName : funcionarioNome)!
+            </div>
+        }
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success text-center mb-0" style="animation: fadeIn 0.5s;">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+    </header>
+
+    <div class="container mt-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="  text-white py-4 mt-5 container-footer ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Eco Life</h5>
+                    <p class="mb-0">&copy; 2024 - Todos os direitos reservados</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a asp-area="" asp-page="/Privacy" class="text-white text-decoration-none">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>'
